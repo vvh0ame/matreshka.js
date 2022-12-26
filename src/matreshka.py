@@ -22,9 +22,9 @@ class Matreshka:
 		response = requests.get(
 			f"{self.api}/api/Requests/Auth.php?type=email&subtype=auth&action=continue&email={email}&pass={password}&accountId={self.account_id}&sessionHash={self.session_hash}&deviceHash={self.device_hash}&client={self.client}",
 			headers=self.headers).json()
-		if "account_id" in response["actions"]:
-			self.account_id = response["actions"]["account_id"]
-			self.session_hash = response["actions"]["session_hash"]
+		if "account_id" in response["actions"][0]:
+			self.account_id = response["actions"][0]["account_id"]
+			self.session_hash = response["actions"][0]["session_hash"]
 		return response
 
 	def request_verification_code(
