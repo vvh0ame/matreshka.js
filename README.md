@@ -1,9 +1,14 @@
-# matreshka.py
+# matreshka.js
 Mobile-API for [matreshka](https://matrp.ru) online game about Russia in which you can immerse yourself in the gameplay with maximum comfort
 
 ## Example
-```python
-import matreshka
-matreshka = matreshka.Matreshka()
-matreshka.login(email="", password="")
+```JavaScript
+async function main() {
+	const { Matreshka } = require("./matreshka.js")
+	const matreshka = new Matreshka()
+	await matreshka.login("email", "password")
+}
+
+main()
 ```
+
